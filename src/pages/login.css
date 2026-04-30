@@ -1,0 +1,14 @@
+body {
+    background-color: teal;
+    width: 100dvw;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+}
