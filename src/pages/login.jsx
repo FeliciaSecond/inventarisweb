@@ -1,26 +1,29 @@
 import "./login.css"
-import { Card, Image } from "@chakra-ui/react"
-import Book from "./assets/book.jpg"
+import { Card, CardRoot, CardBody, CardHeader, Box, Image, Text, Center, Input, Button } from "@chakra-ui/react"
+import Book from "../assets/book.jpg"
 
 const Login = () => {
     return (
         <>
-            <main>
-                <Card.Root>
-                    <Card.Header>
-                        <Image src={Book}></Image>
-                    </Card.Header>
+            <Box backgroundColor="teal" width="100dvw" height="100dvh" display="flex" flexDirection="row" justifyContent="center" alignItems="center">
+                <CardRoot className="card" borderRadius="20px" backgroundColor="white" color="black" display="flex" flexDirection="column" alignItems="stretch" justifyContent="stretch">
+                    <CardHeader>
+                        <Center>
+                            <Image width="150px" src={Book}></Image>
+                        </Center>
+                        <Text textAlign="center" fontWeight="bold">My Inventory</Text>
+                    </CardHeader>
 
-                    <Card.Body>
-                        <p>test body</p>
-                    </Card.Body>
+                    <CardBody gapY="10px" display="flex" flexDirection="column" alignItems="center" justifyContent="start" height="fit-content">
+                        <Input placeholder="Username" type="text"></Input>
+                        <Input placeholder="Password" type="password"></Input>
+                        <Button backgroundColor="teal" color="white" borderRadius="10px" width="100%">
+                            <Text>LOGIN</Text>
+                        </Button>
+                    </CardBody>
 
-                    <Card.Footer>
-
-                    </Card.Footer>
-
-                </Card.Root>
-            </main>
+                </CardRoot>
+            </Box>
         </>
     );
 };
