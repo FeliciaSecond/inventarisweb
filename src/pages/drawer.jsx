@@ -1,8 +1,10 @@
-import { Button, CloseButton, Drawer, Portal } from "@chakra-ui/react";
+import { Button, CloseButton, Drawer, Portal, Center, Image, Box, Text, Link } from "@chakra-ui/react";
 import { useState } from "react";
 import { BiMenu } from "react-icons/bi";
+import { Link as RouterLink } from "react-router-dom";
 
-const MyDrawer = () => {
+
+const MyDrawer = ({ namadrawer, logodrawer }) => {
     const [open, setOpen] = useState(false)
 
     return (
@@ -20,13 +22,31 @@ const MyDrawer = () => {
                 <Drawer.Positioner>
                     <Drawer.Content>
                         <Drawer.Header>
-                            <Drawer.Title>Drawer Title</Drawer.Title>
+                            <Drawer.Title>{namadrawer}</Drawer.Title>
                         </Drawer.Header>
 
                         <Drawer.Body>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur iusto cupiditate beatae dicta vitae dolorem quaerat laudantium quod, vero, officia quibusdam ut facere dolores quisquam consequatur aliquam repellendus, maiores quae?
-                            </p>
+                            <Center>
+                                <Image src={logodrawer} width="30dvw"></Image>
+                            </Center>
+
+                            <Box display="flex" flexDirection="column" paddingTop="20px" gapY="10px">
+                                <Link as={RouterLink} to="/dashboard" onClick={() => setOpen(false)} bgColor="blue.100" color="blackAlpha.800" padding="10px" _hover={{ backgroundColor: "blue.400", color: "white" }} borderRadius="10px" fontWeight="bold">
+                                    <Text>Menu Dashboard</Text>
+                                </Link>
+                            </Box>
+
+                            <Box display="flex" flexDirection="column" paddingTop="20px" gapY="10px">
+                                <Link as={RouterLink} to="pengguna" onClick={() => setOpen(false)}bgColor="blue.100" color="blackAlpha.800" padding="10px" _hover={{ backgroundColor: "blue.400", color: "white" }} borderRadius="10px" fontWeight="bold">
+                                    <Text>Menu Pengguna</Text>
+                                </Link>
+                            </Box>
+
+                            <Box display="flex" flexDirection="column" paddingTop="20px" gapY="10px">
+                                <Link as={RouterLink} to="profil" onClick={() => setOpen(false)}bgColor="blue.100" color="blackAlpha.800" padding="10px" _hover={{ backgroundColor: "blue.400", color: "white" }} borderRadius="10px" fontWeight="bold">
+                                    <Text>Menu Profil</Text>
+                                </Link>
+                            </Box>
                         </Drawer.Body>
 
                         <Drawer.Footer>
