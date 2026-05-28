@@ -1,9 +1,31 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Heading, Box, Image } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import person from "../assets/person.png"
 
 const Profil = () => {
+    const [nama, setNama] = useState("");
+
+    useEffect(() => {
+        setNama(localStorage.getItem("namaLS"));
+    }, []);
+
     return (
         <>
-            <Text>Ini adalah halaman Profil</Text>
+            <Heading size="2xl" textAlign="center">
+                Profil Saya
+            </Heading>
+
+            <Box display="flex" flexDirection="row" justifyContent="center">
+                <Image src={person} width="30dvw"/>
+            </Box>
+
+            <Text fontWeight="bold" textAlign="center" padding="10px">
+                Nama Saya {nama}
+            </Text>
+
+            <Text fontWeight="bold" textAlign="center" padding="10px">
+                Saya adalah seorang programmer amatir yang suka belajar
+            </Text>
         </>
     );
 };
